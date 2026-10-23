@@ -162,6 +162,7 @@ export const AiCumulativeQuiz: React.FC<Props> = ({
                 gap: "0.5rem",
                 padding: "6px 12px",
                 backgroundColor: COLORS.primary1,
+                color: COLORS.primary1BwInverted,
                 borderRadius: 4,
                 fontSize: "0.85rem",
                 marginBottom: "1rem",
@@ -230,6 +231,18 @@ export const AiCumulativeQuiz: React.FC<Props> = ({
                                                 ? (isCorrect ? COLORS.happy0 : COLORS.danger0)
                                                 : undefined,
                                     },
+                                    // Appkit greys out disabled buttons, which made
+                                    // the chosen answer unreadable on its colored bg.
+                                    ...isAnswered && selectedAnswer === option && {
+                                        "&:disabled": {
+                                            color: isCorrect
+                                                ? COLORS.happy0BwInverted
+                                                : COLORS.danger0BwInverted,
+                                            borderColor: isCorrect
+                                                ? COLORS.happy0
+                                                : COLORS.danger0,
+                                        },
+                                    },
                                 }}
                             >
                                 {option}
@@ -258,6 +271,18 @@ export const AiCumulativeQuiz: React.FC<Props> = ({
                                             isAnswered && selectedAnswer === option
                                                 ? (isCorrect ? COLORS.happy0 : COLORS.danger0)
                                                 : undefined,
+                                    },
+                                    // Appkit greys out disabled buttons, which made
+                                    // the chosen answer unreadable on its colored bg.
+                                    ...isAnswered && selectedAnswer === option && {
+                                        "&:disabled": {
+                                            color: isCorrect
+                                                ? COLORS.happy0BwInverted
+                                                : COLORS.danger0BwInverted,
+                                            borderColor: isCorrect
+                                                ? COLORS.happy0
+                                                : COLORS.danger0,
+                                        },
                                     },
                                 }}
                             >
