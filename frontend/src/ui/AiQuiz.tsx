@@ -195,7 +195,7 @@ export const AiQuiz: React.FC<Props> = ({ fragmentRef, onSeekToTimestamp, isVide
                                 alignItems: "center",
                                 gap: "0.35rem",
                                 fontSize: "0.85rem",
-                                color: COLORS.primary0,
+                                color: COLORS.primary1BwInverted,
                                 backgroundColor: COLORS.primary1,
                                 padding: "4px 10px",
                                 borderRadius: 4,
@@ -219,7 +219,7 @@ export const AiQuiz: React.FC<Props> = ({ fragmentRef, onSeekToTimestamp, isVide
                                 alignItems: "center",
                                 gap: "0.35rem",
                                 fontSize: "0.85rem",
-                                color: COLORS.happy2,
+                                color: COLORS.happy0BwInverted,
                                 backgroundColor: COLORS.happy0,
                                 padding: "4px 10px",
                                 borderRadius: 4,
@@ -296,6 +296,18 @@ export const AiQuiz: React.FC<Props> = ({ fragmentRef, onSeekToTimestamp, isVide
                                                             : COLORS.danger0)
                                                         : undefined,
                                             },
+                                            // Appkit greys out disabled buttons, which made
+                                            // the chosen answer unreadable on its colored bg.
+                                            ...isAnswered && selectedAnswer === option && {
+                                                "&:disabled": {
+                                                    color: isCorrect
+                                                        ? COLORS.happy0BwInverted
+                                                        : COLORS.danger0BwInverted,
+                                                    borderColor: isCorrect
+                                                        ? COLORS.happy0
+                                                        : COLORS.danger0,
+                                                },
+                                            },
                                         }}
                                     >
                                         {option}
@@ -326,6 +338,18 @@ export const AiQuiz: React.FC<Props> = ({ fragmentRef, onSeekToTimestamp, isVide
                                                             ? COLORS.happy0
                                                             : COLORS.danger0)
                                                         : undefined,
+                                            },
+                                            // Appkit greys out disabled buttons, which made
+                                            // the chosen answer unreadable on its colored bg.
+                                            ...isAnswered && selectedAnswer === option && {
+                                                "&:disabled": {
+                                                    color: isCorrect
+                                                        ? COLORS.happy0BwInverted
+                                                        : COLORS.danger0BwInverted,
+                                                    borderColor: isCorrect
+                                                        ? COLORS.happy0
+                                                        : COLORS.danger0,
+                                                },
                                             },
                                         }}
                                     >

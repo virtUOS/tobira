@@ -127,6 +127,7 @@ export const AiQuizModeSelector: React.FC<Props> = ({
                             }`,
                             backgroundColor:
                                 quizMode === "single" ? COLORS.primary1 : "transparent",
+                            color: quizMode === "single" ? COLORS.primary1BwInverted : undefined,
                             transition: "all 0.2s",
                             "&:hover": {
                                 borderColor: COLORS.primary0,
@@ -147,7 +148,12 @@ export const AiQuizModeSelector: React.FC<Props> = ({
                                 <div css={{ fontWeight: 500, marginBottom: "0.25rem" }}>
                                     {t("video.ai-quiz.single-mode", "This video only")}
                                 </div>
-                                <div css={{ fontSize: "0.85rem", color: COLORS.neutral40 }}>
+                                <div css={{
+                                    fontSize: "0.85rem",
+                                    color: quizMode === "single"
+                                        ? COLORS.primary1BwInverted
+                                        : COLORS.neutral40,
+                                }}>
                                     {singleQuestionCount > 0
                                         ? t("video.ai-quiz.question-count", "{{count}} questions", {
                                             count: singleQuestionCount,
@@ -170,6 +176,9 @@ export const AiQuizModeSelector: React.FC<Props> = ({
                             }`,
                             backgroundColor:
                                 quizMode === "cumulative" ? COLORS.primary1 : "transparent",
+                            color: quizMode === "cumulative"
+                                ? COLORS.primary1BwInverted
+                                : undefined,
                             transition: "all 0.2s",
                             "&:hover": {
                                 borderColor: COLORS.primary0,
@@ -194,7 +203,12 @@ export const AiQuizModeSelector: React.FC<Props> = ({
                                         { count: event.seriesVideoPosition },
                                     )}
                                 </div>
-                                <div css={{ fontSize: "0.85rem", color: COLORS.neutral40 }}>
+                                <div css={{
+                                    fontSize: "0.85rem",
+                                    color: quizMode === "cumulative"
+                                        ? COLORS.primary1BwInverted
+                                        : COLORS.neutral40,
+                                }}>
                                     {cumulativeQuestionCount > 0
                                         ? t("video.ai-quiz.question-count", "{{count}} questions", {
                                             count: cumulativeQuestionCount,

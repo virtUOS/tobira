@@ -111,7 +111,7 @@ export const FlagContentButton: React.FC<Props> = ({
                 alignItems: "center",
                 gap: "0.35rem",
                 fontSize: "0.85rem",
-                color: COLORS.danger0,
+                color: COLORS.danger1BwInverted,
                 backgroundColor: COLORS.danger1,
                 padding: "4px 10px",
                 borderRadius: 4,
